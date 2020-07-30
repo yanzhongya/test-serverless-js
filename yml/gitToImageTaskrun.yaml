@@ -10,7 +10,7 @@ spec:
     - name: pathToDockerFile
       value: Dockerfile
     - name: pathToContext
-      value: $(resources.inputs.docker-source.path)/examples/microservices/leeroy-web
+      value: $(resources.inputs.docker-source.path)/src
   resources:
     inputs:
       - name: docker-source
