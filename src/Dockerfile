@@ -1,17 +1,15 @@
-FROM hub.17usoft.com/base/node:10.15
+# Use the official lightweight Node.js 12 image.
+# https://hub.docker.com/_/node
+FROM hub.17usoft.com/base/nodejs:v12.17.0
 
-RUN mkdir -p /home/node/app/node_modules && chown -R node:node /home/node/app
-
-WORKDIR /home/node/app
+# Create and change to the app directory.
+WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-USER node
+RUN npm install --only=production
 
-RUN npm install
+COPY . ./
 
-COPY --chown=node:node . .
-
-EXPOSE 8080
-
-CMD [ "node", "app.js" ]
+# Run the web service on container startup.
+CMD [ "npm", "start" ]

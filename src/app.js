@@ -1,18 +1,21 @@
-// import express (after npm install express)
 const express = require('express');
-
-// create new express app and save it as "app"
 const app = express();
+const index = require('./index');
 
-// server configuration
-const PORT = 8080;
 
-// create a route for the app
-app.get('/', (req, res) => {
-  res.send('Hello. Breast cancer death rates declined 40% from 1989 to 2016 among women.<p><a href="https://www.nationalbreastcancer.org/early-detection-of-breast-cancer/">The progress is attributed to improvements in early detection.</a>');
+app.get('/', async (req, res) => {
+  console.log('Hello world received a request.');
+
+  var event = {"a":3,"b":4}
+  var funRes = await index.main_handler(event);
+  var funResStr = funRes.toString();
+  
+  console.log("funResStr:")
+  console.log(funResStr)
+  res.send(funResStr);
 });
 
-// make the server listen to requests
-app.listen(PORT, () => {
-  console.log(`Server running at: http://localhost:${PORT}/`);
+const port = process.env.PORT || 8080;
+app.listen(port, () => {
+  console.log('Hello world listening on port', port);
 });

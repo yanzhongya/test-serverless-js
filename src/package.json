@@ -1,24 +1,16 @@
 {
-  "name": "node-js-tekton",
-  "version": "0.0.1",
-  "description": "Example Node.js Application with Tekton Pipeline",
-  "author": "Jonathan Johnson",
-  "license": "MIT",
+  "name": "app_js",
+  "version": "1.0.0",
+  "description": "",
   "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {},
   "scripts": {
     "start": "node app.js"
   },
-  "dependencies": {
-    "express": "^4.16.1"
-  },
-  "repository": {
-    "type": "git",
-    "url": "node-js-tekton"
-  },
-  "keywords": [
-    "cancer",
-    "tekton",
-    "kubernetes",
-    "node.js"
-  ]
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }
